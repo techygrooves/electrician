@@ -9,16 +9,18 @@ Plain HTML5, CSS3 and vanilla JavaScript. There is no build step: upload the fol
 ```
 index.html                 Homepage
 services.html              Services overview
-services/*.html            One page per major service (panel upgrades, EV chargers, generators, lighting, repairs, inspections)
+services/*.html            One page per major service (panel upgrades, EV chargers, backup generators,
+                           lighting & fans, commercial wiring, electrical troubleshooting)
 residential.html           Residential electrical
 commercial.html            Commercial electrical
 about.html                 About
 contact.html               Contact / booking (#booking anchor)
-privacy.html               Privacy policy (placeholder)
+privacy.html, terms.html   Legal pages (content to be supplied)
 404.html                   Not-found page (root-absolute paths, used by .htaccess)
 assets/css/main.css        Global design system and shared components
 assets/js/main.js          Header, dropdown, mobile menu, reveal animations
 assets/images/             Logo and favicon (SVG)
+assets/images/photos/      Site photography (add your own, see below)
 sitemap.xml, robots.txt    SEO
 .htaccess                  Apache/LiteSpeed config: 404, compression, caching, security headers
 ```
@@ -31,11 +33,41 @@ Main CSS patterns: `.btn` (`--primary`, `--ghost`, `--light`, `--white`), `.sect
 
 When CSS or JS changes, bump the `?v=` query string on the `main.css` / `main.js` links so browsers pick up the new file (they are cached for a month).
 
-## Placeholders to replace before launch
+## Business phone and email
 
-- Phone `(407) 555-0142` / `tel:+14075550142`
-- Email `service@brightflowservices.com`
-- Florida license `EC13000000`
+Set them once in `assets/js/main.js`:
+
+```js
+var BRIGHT_FLOW_CONTACT = {
+  phone: "(407) 000-0000",
+  email: "hello@yourdomain.com"
+};
+```
+
+Every call button, header phone, footer contact line and email link across the site stays hidden until a value is set, so a placeholder number is never shown. Once confirmed, also add `"telephone"` and `"email"` to the JSON-LD block in `index.html` for search engines.
+
+## Photography
+
+The homepage has three photo slots. Each shows a designed fallback until the image file exists, then fades the photo in automatically (with a dark overlay on the hero). Use your own job photos or properly licensed images:
+
+| File | Used for | Suggested size |
+| --- | --- | --- |
+| `assets/images/photos/hero.jpg` | Homepage hero background | 2400 × 1600, subject on the right |
+| `assets/images/photos/residential.jpg` | Residential category card | 1200 × 1500 |
+| `assets/images/photos/commercial.jpg` | Commercial category card | 1200 × 1500 |
+
+Compress images (around 200–400 KB each) before uploading.
+
+## Content waiting on verified information
+
+Nothing below is published until it is confirmed:
+
+- **Service area** (`index.html`, "Service area" section): add each verified county or city as `<li>…</li>` inside `<ul class="area-chips">`. The list stays hidden while empty.
+- **Customer reviews** (`index.html`): the section is built but has the `hidden` attribute. Add genuine reviews using the commented template and remove `hidden`.
+- **Licenses, insurance, ratings, years in business, customer counts**: intentionally not stated anywhere. Add them only once verified.
+- **Free estimates**: CTAs say "Request an Estimate". Change to "Request a Free Estimate" only if free estimates are confirmed.
+
+## Other placeholders
+
 - Domain `https://www.brightflowservices.com` (canonical URLs, JSON-LD, sitemap, robots.txt)
-- Social profile links (`href="#"` in the footer)
-- Business hours, and the "24/7 emergency" and "5-Star Rated" claims
+- Privacy Policy and Terms of Use text

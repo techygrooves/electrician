@@ -2,6 +2,17 @@
    Bright Flow Services — Site behavior
    Vanilla JS, no dependencies. Loaded with `defer` on every page.
    ========================================================================== */
+/* --------------------------------------------------------------------------
+   BUSINESS CONTACT DETAILS: edit here once they are confirmed.
+   Every element marked [data-phone] / [data-email] across the site stays
+   hidden until a value is set, so no placeholder number is ever published.
+   Example: phone: "(407) 555-0100", email: "hello@example.com"
+   -------------------------------------------------------------------------- */
+var BRIGHT_FLOW_CONTACT = {
+  phone: "",
+  email: ""
+};
+
 (function () {
   "use strict";
 
@@ -198,6 +209,49 @@
     }, { rootMargin: "0px 0px -8% 0px", threshold: 0.12 });
     revealEls.forEach(function (el) { observer.observe(el); });
   }
+
+  /* ------------------------------------------------------------------------
+     Contact details (see BRIGHT_FLOW_CONTACT at the top of this file)
+     ------------------------------------------------------------------------ */
+  var contact = window.BRIGHT_FLOW_CONTACT || {};
+  var phone = String(contact.phone || "").trim();
+  var email = String(contact.email || "").trim();
+
+  if (phone) {
+    var digits = phone.replace(/[^\d+]/g, "");
+    var tel = digits.charAt(0) === "+" ? digits : (digits.length === 10 ? "+1" + digits : digits);
+    document.querySelectorAll("[data-phone]").forEach(function (el) {
+      if (el.tagName === "A") el.setAttribute("href", "tel:" + tel);
+      if (el.hasAttribute("aria-label")) el.setAttribute("aria-label", "Call Bright Flow Services at " + phone);
+      el.hidden = false;
+    });
+    document.querySelectorAll("[data-phone-number]").forEach(function (el) { el.textContent = phone; });
+  }
+  if (email) {
+    document.querySelectorAll("[data-email]").forEach(function (el) {
+      if (el.tagName === "A") el.setAttribute("href", "mailto:" + email);
+      el.hidden = false;
+    });
+    document.querySelectorAll("[data-email-address]").forEach(function (el) { el.textContent = email; });
+  }
+
+  /* ------------------------------------------------------------------------
+     Optional photography: fade in when loaded, remove if the file is missing
+     so the designed fallback shows instead of a broken image.
+     ------------------------------------------------------------------------ */
+  document.querySelectorAll("img[data-optional-img]").forEach(function (img) {
+    function loaded() {
+      img.classList.add("is-loaded");
+      if (img.parentElement) img.parentElement.classList.add("has-media");
+    }
+    function failed() { img.remove(); }
+    if (img.complete) {
+      if (img.naturalWidth > 0) loaded(); else failed();
+    } else {
+      img.addEventListener("load", loaded, { once: true });
+      img.addEventListener("error", failed, { once: true });
+    }
+  });
 
   /* ------------------------------------------------------------------------
      Footer year

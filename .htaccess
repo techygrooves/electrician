@@ -3,6 +3,13 @@
 ErrorDocument 404 /404.html
 DirectoryIndex index.html
 
+# Renamed service pages (keep old links working)
+<IfModule mod_alias.c>
+  Redirect 301 /services/panel-upgrades.html /services/electrical-panel-upgrades.html
+  Redirect 301 /services/generator-installation.html /services/backup-generator-installation.html
+  Redirect 301 /services/lighting-fan-installation.html /services/lighting-and-fan-upgrades.html
+</IfModule>
+
 # Force HTTPS (uncomment once SSL is active on the domain)
 # RewriteEngine On
 # RewriteCond %{HTTPS} off

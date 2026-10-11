@@ -9,8 +9,11 @@ Plain HTML5, CSS3 and vanilla JavaScript. There is no build step: upload the fol
 ```
 index.html                 Homepage
 services.html              Services overview
-services/*.html            One page per major service (panel upgrades, EV chargers, backup generators,
-                           lighting & fans, commercial wiring, electrical troubleshooting)
+services/*.html            One detail page per service:
+                           residential: electrical-panel-upgrades, ev-charger-installation,
+                           backup-generator-installation, lighting-and-fan-upgrades,
+                           dedicated-electrical-circuits, smart-home-integration
+                           commercial (full content pending): commercial-wiring, electrical-troubleshooting
 residential.html           Residential electrical
 commercial.html            Commercial electrical
 about.html                 About
@@ -28,6 +31,8 @@ sitemap.xml, robots.txt    SEO
 ## Shared components
 
 The header, mobile menu, footer and mobile call bar are the same markup on every page; change them on all pages together. Pages in `services/` use `../` relative paths.
+
+Detail-page patterns: `.page-hero--media` (photo hero with an "at a glance" `.hero-panel`), `.split` / `.prose` / `.panel-card`, `.signs`, `.callout` (safety note), `.process--custom` (set `--steps`), `.faq` (native `<details>` accordion).
 
 Main CSS patterns: `.btn` (`--primary`, `--ghost`, `--light`, `--white`), `.section`, `.section-head`, `.grid--2/3/4`, `.card` / `.service-card`, `.cta-band`, `.page-hero`, `.form` / `.field`, `.reveal` (scroll animation).
 
@@ -48,13 +53,15 @@ Every call button, header phone, footer contact line and email link across the s
 
 ## Photography
 
-The homepage has three photo slots. Each shows a designed fallback until the image file exists, then fades the photo in automatically (with a dark overlay on the hero). Use your own job photos or properly licensed images:
+The homepage, residential page and each residential service page have photo slots. Each shows a designed fallback until the image file exists, then fades the photo in automatically (with a dark overlay on the hero). Use your own job photos or properly licensed images:
 
 | File | Used for | Suggested size |
 | --- | --- | --- |
 | `assets/images/photos/hero.jpg` | Homepage hero background | 2400 × 1600, subject on the right |
 | `assets/images/photos/residential.jpg` | Residential category card | 1200 × 1500 |
 | `assets/images/photos/commercial.jpg` | Commercial category card | 1200 × 1500 |
+| `assets/images/photos/residential-hero.jpg` | Residential page hero | 2400 × 1400 |
+| `assets/images/photos/services/<page-name>.jpg` | Hero of each service page (e.g. `electrical-panel-upgrades.jpg`) | 2400 × 1400 |
 
 Compress images (around 200–400 KB each) before uploading.
 
@@ -66,6 +73,10 @@ Nothing below is published until it is confirmed:
 - **Customer reviews** (`index.html`): the section is built but has the `hidden` attribute. Add genuine reviews using the commented template and remove `hidden`.
 - **Licenses, insurance, ratings, years in business, customer counts**: intentionally not stated anywhere. Add them only once verified.
 - **Free estimates**: CTAs say "Request an Estimate". Change to "Request a Free Estimate" only if free estimates are confirmed.
+
+## Renamed pages
+
+Earlier service URLs were renamed; `.htaccess` 301-redirects `panel-upgrades`, `generator-installation` and `lighting-fan-installation` to their new names.
 
 ## Other placeholders
 

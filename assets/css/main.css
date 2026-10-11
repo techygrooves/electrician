@@ -15,6 +15,7 @@
    12. Footer
    13. Motion & utilities
    14. Homepage sections
+   15. Service & detail pages
    ========================================================================== */
 
 /* 1. Tokens ---------------------------------------------------------------- */
@@ -1776,3 +1777,169 @@ p { text-wrap: pretty; }
   .category-card { min-height: 0; padding-top: clamp(150px, 42vw, 220px); }
   .category-card__art svg { top: 1.5rem; right: 1.5rem; width: 30%; }
 }
+
+/* 15. Service & detail pages ----------------------------------------------- */
+
+/* Interior hero with optional photo and an "at a glance" aside */
+.page-hero--media .hero__media img { object-position: center; }
+.page-hero--media .hero__media.has-media::after {
+  background:
+    linear-gradient(90deg, rgba(6, 14, 28, 0.94) 0%, rgba(11, 23, 42, 0.84) 45%, rgba(11, 23, 42, 0.5) 100%),
+    linear-gradient(0deg, rgba(6, 14, 28, 0.7) 0%, transparent 40%);
+}
+@media (max-width: 899px) {
+  .page-hero--media .hero__media.has-media::after { background: rgba(8, 17, 32, 0.86); }
+}
+.page-hero__grid { display: grid; gap: var(--space-7); align-items: center; }
+.page-hero__grid .page-hero__inner { max-width: 760px; }
+.page-hero__grid .hero-panel { margin-top: var(--space-6); }
+@media (min-width: 1024px) {
+  .page-hero__grid { grid-template-columns: minmax(0, 1.5fr) minmax(300px, 0.75fr); gap: clamp(3rem, 5vw, 6rem); }
+  .page-hero__grid .hero-panel { margin-top: calc(var(--header-h) + 1.5rem); }
+}
+
+.hero-checklist { display: grid; gap: var(--space-3); margin: 0 0 var(--space-5); padding: 0; list-style: none; }
+.hero-checklist li { display: flex; gap: 0.7rem; align-items: flex-start; font-size: var(--fs-sm); line-height: 1.5; color: rgba(255, 255, 255, 0.86); }
+.hero-checklist svg { width: 18px; height: 18px; margin-top: 2px; color: var(--blue-400); }
+
+.hero-chips { display: flex; flex-wrap: wrap; gap: var(--space-2); margin: 0; padding: 0; list-style: none; }
+.hero-chips li {
+  padding: 0.35rem 0.8rem;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-pill);
+}
+@media (min-width: 1024px) { .hero-chips { display: none; } }
+
+/* Prose + side card layout */
+.split { display: grid; gap: clamp(2rem, 1.5rem + 3vw, 4.5rem); align-items: start; }
+@media (min-width: 960px) { .split { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); } }
+
+.prose { display: grid; gap: var(--space-5); }
+.prose > p { color: var(--color-text-muted); font-size: var(--fs-lg); line-height: 1.7; }
+.prose > p:first-of-type { color: var(--navy-900); }
+
+.panel-card {
+  padding: clamp(1.5rem, 1.2rem + 1vw, 2.25rem);
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+.panel-card h3 { font-size: var(--fs-h4); margin-bottom: var(--space-5); }
+@media (min-width: 960px) { .panel-card--sticky { position: sticky; top: calc(var(--header-h) + 1.5rem); } }
+
+.checklist { display: grid; gap: var(--space-4); margin: 0; padding: 0; list-style: none; }
+.checklist li { display: flex; gap: 0.8rem; align-items: flex-start; font-size: var(--fs-sm); line-height: 1.55; color: var(--gray-700); }
+.checklist svg { width: 20px; height: 20px; margin-top: 1px; color: var(--blue-500); }
+
+/* Benefit cards */
+.benefit { gap: var(--space-3); }
+.benefit .service-card__icon { width: 48px; height: 48px; border-radius: 14px; margin-bottom: var(--space-2); }
+.benefit .service-card__icon svg { width: 22px; height: 22px; }
+.benefit h3 { font-size: 1.125rem; letter-spacing: -0.015em; }
+
+/* Signs list */
+.signs { display: grid; gap: var(--space-3); margin: 0; padding: 0; list-style: none; }
+@media (min-width: 700px) { .signs { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1100px) { .signs { grid-template-columns: repeat(3, 1fr); } }
+.signs li {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+  padding: var(--space-5);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--navy-900);
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+}
+.signs__num {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: 800;
+  color: var(--blue-500);
+  background: var(--blue-50);
+  border-radius: 50%;
+}
+
+/* Safety callout */
+.callout {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+  margin-top: var(--space-6);
+  padding: var(--space-5) var(--space-6);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  color: #5A4410;
+  background: #FFF8E8;
+  border: 1px solid #F6DFA6;
+  border-radius: var(--radius);
+}
+.callout svg { width: 22px; height: 22px; margin-top: 1px; color: #C98A00; }
+.callout strong { color: #3D2E08; }
+
+/* Process with a custom step count: <ol class="process process--custom" style="--steps: 5"> */
+@media (min-width: 900px) {
+  .process--custom { grid-template-columns: repeat(var(--steps, 4), 1fr); }
+}
+.process-note { margin-top: var(--space-6); font-size: var(--fs-sm); color: var(--gray-500); text-align: center; }
+
+/* FAQ accordion (native <details>, no JS needed) */
+.faq { display: grid; gap: var(--space-3); }
+.faq details {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.faq details[open] { border-color: var(--blue-100); box-shadow: var(--shadow-md); }
+.faq summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-6);
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  cursor: pointer;
+  list-style: none;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "";
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--blue-50) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231479F6' stroke-width='2.2' stroke-linecap='round'%3E%3Cpath d='M12 6v12M6 12h12'/%3E%3C/svg%3E") center / 14px no-repeat;
+  transition: transform var(--dur) var(--ease), background-color var(--dur) var(--ease);
+}
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq summary:hover { color: var(--blue-600); }
+.faq__answer { padding: 0 var(--space-6) var(--space-5); color: var(--color-text-muted); font-size: var(--fs-sm); line-height: 1.7; }
+@media (max-width: 599px) {
+  .faq summary { padding: var(--space-4) var(--space-5); font-size: 1rem; }
+  .faq__answer { padding: 0 var(--space-5) var(--space-4); }
+}
+
+/* Service cards with highlight list (residential overview) */
+.service-card__list { display: grid; gap: 0.45rem; margin: 0; padding: 0; list-style: none; }
+.service-card__list li { display: flex; gap: 0.55rem; align-items: flex-start; font-size: var(--fs-xs); font-weight: 500; color: var(--gray-700); }
+.service-card__list svg { width: 16px; height: 16px; margin-top: 1px; color: var(--blue-500); }
+
+.section-cta { display: flex; flex-wrap: wrap; gap: var(--space-3); justify-content: center; margin-top: var(--space-7); }

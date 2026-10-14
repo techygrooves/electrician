@@ -8,6 +8,8 @@ DirectoryIndex index.html
   Redirect 301 /services/panel-upgrades.html /services/electrical-panel-upgrades.html
   Redirect 301 /services/generator-installation.html /services/backup-generator-installation.html
   Redirect 301 /services/lighting-fan-installation.html /services/lighting-and-fan-upgrades.html
+  Redirect 301 /services/commercial-wiring.html /services/new-construction-wiring.html
+  Redirect 301 /services/electrical-troubleshooting.html /services/commercial-troubleshooting-repairs.html
 </IfModule>
 
 # Force HTTPS (uncomment once SSL is active on the domain)

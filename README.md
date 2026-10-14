@@ -42,18 +42,37 @@ Main CSS patterns: `.btn` (`--primary`, `--ghost`, `--light`, `--white`), `.sect
 
 When CSS or JS changes, bump the `?v=` query string on the `main.css` / `main.js` links so browsers pick up the new file (they are cached for a month).
 
-## Business phone and email
+## Business details and the estimate form
 
-Set them once in `assets/js/main.js`:
+Set everything once in `assets/js/main.js`:
 
 ```js
 var BRIGHT_FLOW_CONTACT = {
   phone: "(407) 000-0000",
-  email: "hello@yourdomain.com"
+  email: "hello@yourdomain.com",
+  address: "123 Example St, Orlando, FL 32801",
+  hours: "Mon–Fri, 8am–5pm",
+  formEndpoint: "https://formspree.io/f/yourFormId"
 };
 ```
 
-Every call button, header phone, footer contact line and email link across the site stays hidden until a value is set, so a placeholder number is never shown. Once confirmed, also add `"telephone"` and `"email"` to the JSON-LD block in `index.html` for search engines.
+- **Phone / email:** every call button, header phone, footer contact line and email link stays hidden until set, so no placeholder is ever linked. The contact page shows "To be confirmed" in their place.
+- **Address / hours:** replace the "To be confirmed" placeholders on the contact page.
+- **formEndpoint:** where the Request an Estimate form is sent. The form POSTs `multipart/form-data` with `Accept: application/json` and treats any 2xx response as success. This works with hosted form services (e.g. Formspree, Basin, Getform) or your own server-side script (e.g. a PHP handler on Hostinger). You can also set `data-endpoint="…"` on the `<form>` in `contact.html` instead. **Never put API keys or secrets in this file**: it is public. Any secret belongs on the server that receives the form.
+- While `formEndpoint` is empty, the form still validates input but tells the visitor that online requests aren't connected yet. It never shows a false "sent" message.
+
+Once the phone and email are confirmed, also add `"telephone"` and `"email"` to the JSON-LD block in `index.html`.
+
+### Form details
+
+- Fields sent: `name`, `email`, `phone` (required), `service_type`, `service`, `location`, `description`, `contact_method`, plus `page` and `seconds_on_page`.
+- `_gotcha` is a hidden honeypot field. If it is filled in, the submission is silently dropped. It is not sent to the endpoint.
+- Service pages link to `contact.html?service=<page-name>#booking` and the residential and commercial pages to `?type=residential|commercial`, so the form arrives pre-filled.
+- Logic lives in `assets/js/estimate-form.js`, which is loaded only on the contact page.
+
+## Privacy Policy
+
+`privacy.html` is a **draft**. Sections marked "Requires business review" and text in [brackets] must be completed by the business, ideally with a qualified professional. The page is set to `noindex` until it's final; remove that from `privacy.html` once it has been reviewed.
 
 ## Photography
 

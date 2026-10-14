@@ -3,14 +3,29 @@
    Vanilla JS, no dependencies. Loaded with `defer` on every page.
    ========================================================================== */
 /* --------------------------------------------------------------------------
-   BUSINESS CONTACT DETAILS: edit here once they are confirmed.
-   Every element marked [data-phone] / [data-email] across the site stays
-   hidden until a value is set, so no placeholder number is ever published.
-   Example: phone: "(407) 555-0100", email: "hello@example.com"
+   BUSINESS DETAILS & FORM ENDPOINT: edit here once they are confirmed.
+
+   phone / email   Every [data-phone] / [data-email] element across the site
+                   stays hidden until a value is set, so no placeholder number
+                   or address is ever linked.
+   address / hours Shown on the contact page in place of the "to be confirmed"
+                   placeholders.
+   formEndpoint    URL that receives the Request an Estimate form as a POST
+                   (multipart form data, Accept: application/json). Use a form
+                   service URL or your own server-side script. Never put API
+                   keys or secrets here: this file is public.
+                   While empty, the form validates input but clearly tells the
+                   visitor that online requests are not connected yet.
+
+   Example: phone: "(407) 555-0100", email: "hello@example.com",
+            formEndpoint: "https://formspree.io/f/yourFormId"
    -------------------------------------------------------------------------- */
 var BRIGHT_FLOW_CONTACT = {
   phone: "",
-  email: ""
+  email: "",
+  address: "",
+  hours: "",
+  formEndpoint: ""
 };
 
 (function () {
@@ -29,10 +44,21 @@ var BRIGHT_FLOW_CONTACT = {
   var header = document.querySelector("[data-header]");
   var callbar = document.querySelector("[data-callbar]");
 
+  // The mobile contact bar steps aside while an element marked
+  // [data-callbar-hide] (e.g. the estimate form) is on screen.
+  var callbarBlocked = false;
+  var callbarHide = document.querySelector("[data-callbar-hide]");
+  if (callbar && callbarHide && "IntersectionObserver" in window) {
+    new IntersectionObserver(function (entries) {
+      callbarBlocked = entries[0].isIntersecting;
+      onScroll();
+    }, { rootMargin: "0px 0px -15% 0px" }).observe(callbarHide);
+  }
+
   function onScroll() {
     var y = window.scrollY || window.pageYOffset;
     if (header) header.classList.toggle("is-scrolled", y > 24);
-    if (callbar) callbar.classList.toggle("is-visible", y > 480);
+    if (callbar) callbar.classList.toggle("is-visible", y > 480 && !callbarBlocked);
   }
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
@@ -234,6 +260,20 @@ var BRIGHT_FLOW_CONTACT = {
     });
     document.querySelectorAll("[data-email-address]").forEach(function (el) { el.textContent = email; });
   }
+  // Plain-text details (address, hours) replace their visible placeholders.
+  ["address", "hours"].forEach(function (key) {
+    var value = String(contact[key] || "").trim();
+    if (!value) return;
+    document.querySelectorAll('[data-contact="' + key + '"]').forEach(function (el) {
+      el.textContent = value;
+      el.classList.remove("is-placeholder");
+    });
+  });
+  // Placeholders shown only while a phone number / email is missing.
+  document.querySelectorAll("[data-when-missing]").forEach(function (el) {
+    var key = el.getAttribute("data-when-missing");
+    if ((key === "phone" && phone) || (key === "email" && email)) el.hidden = true;
+  });
 
   /* ------------------------------------------------------------------------
      Optional photography: fade in when loaded, remove if the file is missing

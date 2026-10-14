@@ -154,7 +154,7 @@ Educational topics that answer genuine customer questions and link naturally to 
 
 ## 7. Ongoing checklist
 
-- [ ] Run `tools/set_domain.py` with the real domain.
+- [ ] Run `tools/set_domain.py` with the real domain, then `tools/package_site.py` to build the upload zip (see README → Deploying to Hostinger).
 - [ ] Uncomment the https/www host rule in `.htaccess` once SSL is active.
 - [x] Phone and email added (HTML, config, JSON-LD).
 - [ ] Add address/hours to the config and JSON-LD once verified.

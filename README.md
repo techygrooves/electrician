@@ -28,10 +28,33 @@ assets/images/             Logo, favicons, and social preview images (social/)
 assets/images/photos/      Site photography (add your own, see below)
 sitemap.xml, robots.txt    SEO (indexable pages only)
 docs/SEO.md                SEO notes: keyword map, audit results, local SEO and launch checklist
-tools/                     Development helpers (not needed by the live site): seo_audit.py, set_domain.py, optimize_images.py
+tools/                     Development helpers (not needed by the live site): seo_audit.py, set_domain.py,
+                           optimize_images.py, package_site.py
 assets/fonts/              Self-hosted Inter and Manrope variable fonts
 .htaccess                  Apache/LiteSpeed config: 404, compression, caching, security headers
 ```
+
+## Deploying to Hostinger
+
+The site is plain HTML, CSS and JavaScript: nothing to install, build or run on the server.
+
+1. **Set the real domain** (required before going live, so canonical URLs, social previews, structured data and the sitemap point to your site):
+   ```bash
+   python3 tools/set_domain.py https://www.yourdomain.com
+   python3 tools/seo_audit.py        # should report 0 errors
+   ```
+2. **Package the public files:**
+   ```bash
+   python3 tools/package_site.py     # -> dist/bright-flow-services-public_html.zip
+   ```
+   The zip contains only what belongs on the server (no `tools/`, `docs/` or README) and warns if the placeholder domain is still present.
+3. **Upload:** in hPanel open **Websites → Manage → File Manager → public_html**. Remove Hostinger's default `default.php`/`index.php` if present, upload the zip, and **Extract** it inside `public_html`. `index.html` must sit directly in `public_html` (not in a subfolder). Turn on "Show hidden files" to confirm `.htaccess` is there.
+   *Alternatively*, connect this GitHub repository in **hPanel → Advanced → Git** and deploy the `main` branch into `public_html`; the `.htaccess` blocks `tools/`, `docs/` and the README from public access.
+4. **Enable SSL** in hPanel (**Security → SSL**), then in `.htaccess` uncomment the three-line https/www rule and replace `example.com` with your domain.
+5. **Test the forms:** send one request from the homepage form and one from the contact page, and confirm both arrive at Brightflow91@gmail.com. In the Formspree dashboard you can restrict the form to your domain. If a submission returns an error mentioning reCAPTCHA, turn reCAPTCHA off in that form's Formspree settings (this site submits via JavaScript and has its own honeypot spam check).
+6. **Search engines:** add the site to Google Search Console and Bing Webmaster Tools and submit `https://www.yourdomain.com/sitemap.xml`.
+
+If you ever host the site in a subfolder instead of the domain root, update `ErrorDocument 404` in `.htaccess` and the root-relative links in `404.html`.
 
 ## Shared components
 
@@ -67,8 +90,8 @@ Phone and email are written directly into every page's HTML (header, mobile bar,
 var BRIGHT_FLOW_CONTACT = {
   phone: "(321) 442-9943",
   email: "Brightflow91@gmail.com",
-  address: "",     // add when confirmed; replaces "To be confirmed" on the contact page
-  hours: "",       // add when confirmed
+  address: "",     // add when confirmed; shows the address row on the contact page
+  hours: "",       // add when confirmed; shows the hours row on the contact page
   formEndpoint: "https://formspree.io/f/xyeknqwr"
 };
 ```

@@ -51,28 +51,35 @@ When CSS or JS changes, bump the `?v=` query string on the `main.css` / `main.js
 
 ## Business details and the estimate form
 
-Set everything once in `assets/js/main.js`:
+Verified details now on the site:
+
+| Detail | Value |
+| --- | --- |
+| Phone | (321) 442-9943 (`tel:+13214429943`) |
+| Email | Brightflow91@gmail.com |
+| Instagram | [@bright_flow_services](https://www.instagram.com/bright_flow_services/) |
+| Credentials | OSHA 10 & OSHA 30, CPR certified, journeyman-qualified electrician |
+| Form backend | Formspree: `https://formspree.io/f/xyeknqwr` |
+
+Phone and email are written directly into every page's HTML (header, mobile bar, footer, contact page, homepage consultation section) and into the JSON-LD on the homepage, and are also set in `assets/js/main.js`:
 
 ```js
 var BRIGHT_FLOW_CONTACT = {
-  phone: "(407) 000-0000",
-  email: "hello@yourdomain.com",
-  address: "123 Example St, Orlando, FL 32801",
-  hours: "Mon–Fri, 8am–5pm",
-  formEndpoint: "https://formspree.io/f/yourFormId"
+  phone: "(321) 442-9943",
+  email: "Brightflow91@gmail.com",
+  address: "",     // add when confirmed; replaces "To be confirmed" on the contact page
+  hours: "",       // add when confirmed
+  formEndpoint: "https://formspree.io/f/xyeknqwr"
 };
 ```
 
-- **Phone / email:** every call button, header phone, footer contact line and email link stays hidden until set, so no placeholder is ever linked. The contact page shows "To be confirmed" in their place.
-- **Address / hours:** replace the "To be confirmed" placeholders on the contact page.
-- **formEndpoint:** where the Request an Estimate form is sent. The form POSTs `multipart/form-data` with `Accept: application/json` and treats any 2xx response as success. This works with hosted form services (e.g. Formspree, Basin, Getform) or your own server-side script (e.g. a PHP handler on Hostinger). You can also set `data-endpoint="…"` on the `<form>` in `contact.html` instead. **Never put API keys or secrets in this file**: it is public. Any secret belongs on the server that receives the form.
-- While `formEndpoint` is empty, the form still validates input but tells the visitor that online requests aren't connected yet. It never shows a false "sent" message.
+Both forms, the **homepage consultation form** (`#consultation`) and the **contact page Request an Estimate form** (`contact.html#booking`), use the same markup and script (`assets/js/estimate-form.js`) and post to the Formspree endpoint above. Each sends a `_subject` (so emails are easy to tell apart) and a `form_source` field (`homepage-consultation` or `contact-page`). Formspree is a public form endpoint, so no API key is involved; never put secret keys in this file.
 
-Once the phone and email are confirmed, also add `"telephone"` and `"email"` to the JSON-LD block in `index.html`.
+**After deploying, send one real test from each form** and confirm it arrives at Brightflow91@gmail.com. The first Formspree submission may ask you to confirm the form by email.
 
 ### Form details
 
-- Fields sent: `name`, `email`, `phone` (required), `service_type`, `service`, `location`, `description`, `contact_method`, plus `page` and `seconds_on_page`.
+- Fields sent: `name`, `email`, `phone` (required), `service_type`, `service`, `location`, `description`, `contact_method`, `_subject`, `form_source`, plus `page` and `seconds_on_page`.
 - `_gotcha` is a hidden honeypot field. If it is filled in, the submission is silently dropped. It is not sent to the endpoint.
 - Service pages link to `contact.html?service=<page-name>#booking` and the residential and commercial pages to `?type=residential|commercial`, so the form arrives pre-filled.
 - Logic lives in `assets/js/estimate-form.js`, which is loaded only on the contact page.
@@ -108,7 +115,7 @@ Nothing below is published until it is confirmed:
 
 - **Service area** (`index.html`, "Service area" section): add each verified county or city as `<li>…</li>` inside `<ul class="area-chips">`. The list stays hidden while empty.
 - **Customer reviews** (`index.html`): the section is built but has the `hidden` attribute. Add genuine reviews using the commented template and remove `hidden`.
-- **Licenses, insurance, ratings, years in business, customer counts**: intentionally not stated anywhere. Add them only once verified.
+- **Licenses, insurance, ratings, years in business, customer counts**: intentionally not stated anywhere. Credentials shown are only the ones provided (OSHA 10 & 30, CPR, journeyman-qualified); the site does not claim a contractor license.
 - **Emergency availability**: the commercial troubleshooting page does not promise 24/7 or immediate response. Add response details only once confirmed.
 - **Free estimates**: CTAs say "Request an Estimate". Change to "Request a Free Estimate" only if free estimates are confirmed.
 

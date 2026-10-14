@@ -21,11 +21,11 @@
             formEndpoint: "https://formspree.io/f/yourFormId"
    -------------------------------------------------------------------------- */
 var BRIGHT_FLOW_CONTACT = {
-  phone: "",
-  email: "",
+  phone: "(321) 442-9943",
+  email: "Brightflow91@gmail.com",
   address: "",
   hours: "",
-  formEndpoint: ""
+  formEndpoint: "https://formspree.io/f/xyeknqwr"
 };
 
 (function () {

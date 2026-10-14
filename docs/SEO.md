@@ -9,12 +9,14 @@ This document records what has been implemented, what still depends on business 
 | Item | Where it goes | Status |
 | --- | --- | --- |
 | Production domain | `python3 tools/set_domain.py https://www.yourdomain.com` updates canonicals, Open Graph/Twitter URLs, JSON-LD, `sitemap.xml`, `robots.txt` and the `.htaccess` host rule | **Placeholder** `https://www.example.com` |
-| Phone, email | `assets/js/main.js` (`BRIGHT_FLOW_CONTACT`) **and** the business JSON-LD in `index.html` (`telephone`, `email`) | Not provided |
+| Phone, email | In the HTML of every page and the homepage JSON-LD (`telephone`, `email`, `contactPoint`) | **Done:** (321) 442-9943, Brightflow91@gmail.com |
 | Business address | Contact page config **and** JSON-LD `address` (street, city, ZIP), only if the address is public | Not provided |
 | Business hours | Config **and** JSON-LD `openingHoursSpecification` | Not provided |
 | Cities / counties served | Homepage service-area list (`<ul class="area-chips">`) and JSON-LD `areaServed` | Not provided (currently "Florida") |
-| Google Business Profile URL | JSON-LD `sameAs` | Not provided |
-| License number | Only if the business wants it displayed | Not provided |
+| Google Business Profile URL | JSON-LD `sameAs` (Instagram already listed) | Not provided |
+| Instagram | Footer, contact page, homepage, JSON-LD `sameAs` | **Done:** @bright_flow_services |
+| Credentials | Homepage hero, footer, about, contact, JSON-LD `hasCredential` | **Done:** OSHA 10, OSHA 30, CPR, journeyman-qualified |
+| Contractor license number | Only if the business holds one and wants it displayed | Not provided |
 
 **Never add** ratings, review counts, geo-coordinates, hours, or credentials to the markup until they are real and verifiable.
 
@@ -154,7 +156,9 @@ Educational topics that answer genuine customer questions and link naturally to 
 
 - [ ] Run `tools/set_domain.py` with the real domain.
 - [ ] Uncomment the https/www host rule in `.htaccess` once SSL is active.
-- [ ] Add phone/email/address/hours to the config and JSON-LD (only verified values).
+- [x] Phone and email added (HTML, config, JSON-LD).
+- [ ] Add address/hours to the config and JSON-LD once verified.
+- [ ] Send a real test submission from both forms after deploying.
 - [ ] Add verified service areas (homepage list + JSON-LD).
 - [ ] Finalize Privacy Policy and Terms, then remove their `noindex` and add them to the sitemap.
 - [ ] Submit `sitemap.xml` in Google Search Console and Bing Webmaster Tools.

@@ -31,8 +31,10 @@
 
   <link rel="preload" href="assets/fonts/manrope-latin-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/main.css?v=7">
-  <script src="assets/js/main.js?v=7" defer></script>
+  <link rel="preload" href="assets/fonts/instrument-serif-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/main.css?v=8">
+  <script src="assets/js/main.js?v=8" defer></script>
+  <script src="assets/js/estimate-form.js?v=8" defer></script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -60,6 +62,41 @@
     "addressRegion": "FL",
     "addressCountry": "US"
   },
+  "telephone": "+1-321-442-9943",
+  "email": "Brightflow91@gmail.com",
+  "sameAs": [
+    "https://www.instagram.com/bright_flow_services/"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-321-442-9943",
+    "email": "Brightflow91@gmail.com",
+    "contactType": "customer service",
+    "areaServed": "US-FL",
+    "availableLanguage": "en"
+  },
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "OSHA 10-Hour Safety Training",
+      "credentialCategory": "certification"
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "OSHA 30-Hour Safety Training",
+      "credentialCategory": "certification"
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "CPR Certification",
+      "credentialCategory": "certification"
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Journeyman Electrician Qualification",
+      "credentialCategory": "qualification"
+    }
+  ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Electrical services",
@@ -212,7 +249,7 @@
         <span class="utility-bar__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> <span class="utility-bar__long">Residential &amp; Commercial Electrical Services in Florida</span><span class="utility-bar__short">Electrical services across Florida</span></span>
       </div>
       <div class="utility-bar__group utility-bar__secondary">
-        <a class="utility-bar__item" href="#" data-email hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg> <span data-email-address></span></a>
+        <a class="utility-bar__item" href="mailto:Brightflow91@gmail.com" data-email><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg> <span data-email-address>Brightflow91@gmail.com</span></a>
         <a class="utility-bar__item" href="contact.html#booking"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg> Request an Estimate</a>
       </div>
     </div>
@@ -301,12 +338,12 @@
       </nav>
 
       <div class="header-actions">
-        <a class="header-phone" href="#" data-phone hidden>
+        <a class="header-phone" href="tel:+13214429943" data-phone>
           <span class="header-phone__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg></span>
           <span class="header-phone__text"><span class="header-phone__label">Call us</span><span class="header-phone__number" data-phone-number></span></span>
         </a>
         <a class="btn btn--primary header-cta" href="contact.html#booking">Request an Estimate <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="icon-btn icon-btn--accent header-call-compact" href="#" data-phone hidden aria-label="Call Bright Flow Services"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg></a>
+        <a class="icon-btn icon-btn--accent header-call-compact" href="tel:+13214429943" data-phone aria-label="Call Bright Flow Services at (321) 442-9943"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg></a>
         <button class="icon-btn menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle>
           <span class="visually-hidden">Open menu</span>
           <span class="menu-toggle__bars" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -357,7 +394,7 @@
       </nav>
       <div class="mobile-menu__foot">
         <a class="btn btn--primary btn--lg btn--block" href="contact.html#booking">Request an Estimate <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn--light btn--lg btn--block" href="#" data-phone hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg> Call <span data-phone-number></span></a>
+        <a class="btn btn--light btn--lg btn--block" href="tel:+13214429943" data-phone><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg> <span>Call <span data-phone-number>(321) 442-9943</span></span></a>
         <div class="mobile-menu__meta"><span>Residential</span><span>Commercial</span><span>Florida</span></div>
       </div>
     </div>
@@ -392,14 +429,18 @@
         <div class="hero__inner">
           <div class="hero__content">
             <span class="eyebrow reveal-load" style="--d: 0ms">Residential &amp; Commercial Electrical Services</span>
-            <h1 id="hero-title" class="reveal-load" style="--d: 80ms">Powering Florida Homes &amp; Businesses <span class="text-gradient">With Confidence</span></h1>
-            <p class="hero__lead reveal-load" style="--d: 160ms">From panel upgrades and EV chargers to backup generators and commercial wiring, Bright Flow Services delivers safe, carefully executed electrical work for Florida homeowners and businesses.</p>
+            <h1 id="hero-title" class="hero-title reveal-load" style="--d: 80ms">Powering <span class="accent-sun">Florida</span> Homes &amp;&nbsp;Businesses <em class="accent-serif">With Confidence</em></h1>
+            <p class="hero__lead reveal-load" style="--d: 160ms">From panel upgrades and EV chargers to backup generators and commercial wiring, <strong>Bright Flow Services</strong> delivers <em class="accent-serif-sm">safe, carefully executed</em> electrical work for Florida homeowners and businesses.</p>
             <div class="btn-row reveal-load" style="--d: 240ms">
-              <a class="btn btn--primary btn--lg" href="contact.html#booking">Request an Estimate <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn--primary btn--lg" href="#consultation">Request a Consultation <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn btn--light btn--lg" href="tel:+13214429943" data-phone aria-label="Call Bright Flow Services at (321) 442-9943"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg> <span data-phone-number>(321) 442-9943</span></a>
               <a class="btn btn--light btn--lg" href="services.html">Explore Our Services</a>
-              <!-- Click-to-call: shown automatically once a phone number is set in assets/js/main.js -->
-              <a class="btn btn--light btn--lg" href="#" data-phone hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg> Call <span data-phone-number></span></a>
             </div>
+            <ul class="hero-creds reveal-load" style="--d: 320ms" role="list" aria-label="Credentials">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg> OSHA 10 &amp; OSHA 30</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg> CPR certified</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12L13 2Z"/></svg> Journeyman-qualified electrician</li>
+            </ul>
           </div>
 
           <aside class="hero-panel reveal-load" style="--d: 320ms" aria-label="Find the right service">
@@ -438,7 +479,7 @@
         <ul class="trust-strip__list reveal" role="list">
           <li class="trust-strip__item">
             <span class="trust-strip__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></span>
-            <div><h3>Safety at every step</h3><p>Work is planned and carried out with electrical safety as the first priority.</p></div>
+            <div><h3>Safety at every step</h3><p>OSHA 10 &amp; OSHA 30 trained, CPR certified, with safety as the first priority on every job.</p></div>
           </li>
           <li class="trust-strip__item">
             <span class="trust-strip__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
@@ -707,19 +748,165 @@
       </div>
     </section>
 
-    <!-- 9. Final CTA -->
-    <section class="final-cta" aria-labelledby="final-cta-title">
+    <!-- 9. Consultation form -->
+    <section class="consult-section" id="consultation" aria-labelledby="consult-title">
       <div class="container">
-        <div class="final-cta__inner reveal">
-          <span class="final-cta__mark"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12L13 2Z"/></svg></span>
-          <h2 id="final-cta-title">Let&rsquo;s talk about your electrical project</h2>
-          <p>Share a few details about your home or business and Bright Flow Services will follow up to discuss your project and next steps.</p>
-          <div class="btn-row">
-            <a class="btn btn--primary btn--lg" href="contact.html#booking">Request an Estimate <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <a class="btn btn--light btn--lg" href="#" data-phone hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg> Call <span data-phone-number></span></a>
-            <a class="btn btn--light btn--lg" href="services.html">Explore Our Services</a>
+        <div class="consult-section__layout">
+          <div class="consult-section__intro reveal">
+            <span class="eyebrow">Get in touch</span>
+            <h2 id="consult-title">Let&rsquo;s talk about your <em class="accent-serif">electrical project</em></h2>
+            <p>Tell us what you&rsquo;re planning for your home or business. A journeyman-qualified electrician will review the details and follow up to discuss next steps and a written proposal.</p>
+            <ul class="contact-methods" role="list">
+              <li><a href="tel:+13214429943" data-phone><span class="contact-methods__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg></span><span><small>Call</small><strong><span data-phone-number>(321) 442-9943</span></strong></span></a></li>
+              <li><a href="mailto:Brightflow91@gmail.com" data-email><span class="contact-methods__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span><span><small>Email</small><strong><span data-email-address>Brightflow91@gmail.com</span></strong></span></a></li>
+              <li><a href="https://www.instagram.com/bright_flow_services/" rel="noopener" target="_blank"><span class="contact-methods__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></span><span><small>Instagram</small><strong>@bright_flow_services</strong></span></a></li>
+            </ul>
+            <ul class="hero-creds hero-creds--block" role="list" aria-label="Credentials">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg> OSHA 10 &amp; OSHA 30</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg> CPR certified</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12L13 2Z"/></svg> Journeyman-qualified electrician</li>
+            </ul>
           </div>
-          <p class="final-cta__alt" data-email hidden>Prefer email? Write to <a href="#" data-email><span data-email-address></span></a></p>
+          <div class="form-panel" data-form-panel data-callbar-hide>
+            <div class="form-panel__head">
+              <span class="eyebrow">Request a consultation</span>
+              <h2 id="consult-form-title">Tell us about your project</h2>
+              <p>Fields marked <span class="req">*</span> are required. We&rsquo;ll reply using your preferred contact method.</p>
+            </div>
+
+            <form class="form estimate-form" data-estimate-form action="#" method="post" novalidate aria-labelledby="consult-form-title">
+              <!-- Submissions go to the Formspree endpoint set in assets/js/main.js (formEndpoint). -->
+              <input type="hidden" name="_subject" value="New consultation request: Bright Flow Services homepage">
+              <input type="hidden" name="form_source" value="homepage-consultation">
+              <div class="form-summary" data-form-summary role="alert" tabindex="-1" hidden>
+                <p><strong>Please check the highlighted fields:</strong></p>
+                <ul></ul>
+              </div>
+
+              <fieldset class="form__group">
+                <legend class="form__legend">Your details</legend>
+                <div class="field">
+                  <label class="field__label" for="cf-name">Full name <span class="req" aria-hidden="true">*</span></label>
+                  <input class="field__input" id="cf-name" name="name" type="text" autocomplete="name" required aria-required="true" aria-describedby="cf-name-error">
+                  <span class="field__error" id="cf-name-error" hidden></span>
+                </div>
+                <div class="form__row form__row--2">
+                <div class="field">
+                  <label class="field__label" for="cf-email">Email address <span class="req" aria-hidden="true">*</span></label>
+                  <input class="field__input" id="cf-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-required="true" aria-describedby="cf-email-error">
+                  <span class="field__error" id="cf-email-error" hidden></span>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="cf-phone">Phone number <span class="req" aria-hidden="true">*</span></label>
+                  <input class="field__input" id="cf-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required aria-required="true" aria-describedby="cf-phone-error">
+                  <span class="field__error" id="cf-phone-error" hidden></span>
+                </div>
+                </div>
+              </fieldset>
+
+              <fieldset class="form__group">
+                <legend class="form__legend">Your project</legend>
+                <div class="form__row form__row--2">
+                <div class="field">
+                  <label class="field__label" for="cf-type">Service type <span class="field__optional">(optional)</span></label>
+                  <select class="field__select" id="cf-type" name="service_type">
+                    <option value="">Select a type</option>
+                    <option value="residential">Residential</option>
+                    <option value="commercial">Commercial</option>
+                    <option value="not-sure">Not sure</option>
+                  </select>
+                  <span class="field__error" id="cf-type-error" hidden></span>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="cf-service">Specific electrical service <span class="field__optional">(optional)</span></label>
+                  <select class="field__select" id="cf-service" name="service">
+                    <option value="">Select a service</option>
+                    <optgroup label="Residential services" data-type="residential">
+                      <option value="electrical-panel-upgrades">Electrical Panel Upgrades</option>
+                      <option value="ev-charger-installation">EV Charger Installation</option>
+                      <option value="backup-generator-installation">Backup Generator Installation</option>
+                      <option value="lighting-and-fan-upgrades">Lighting &amp; Fan Upgrades</option>
+                      <option value="dedicated-electrical-circuits">Dedicated Electrical Circuits</option>
+                      <option value="smart-home-integration">Smart Home Integration</option>
+                    </optgroup>
+                    <optgroup label="Commercial services" data-type="commercial">
+                      <option value="new-construction-wiring">New Construction Wiring</option>
+                      <option value="commercial-lighting-retrofits">Commercial Lighting Retrofits</option>
+                      <option value="specialized-equipment-hookups">Specialized Equipment Hookups</option>
+                      <option value="commercial-service-upgrades">Commercial Service &amp; Load Upgrades</option>
+                      <option value="commercial-troubleshooting-repairs">Emergency Troubleshooting &amp; Repairs</option>
+                    </optgroup>
+                    <option value="other">Other / not sure</option>
+                  </select>
+                  <span class="field__error" id="cf-service-error" hidden></span>
+                </div>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="cf-location">Property city or ZIP code <span class="field__optional">(optional)</span></label>
+                  <input class="field__input" id="cf-location" name="location" type="text" autocomplete="postal-code" placeholder="e.g. Orlando or 32801" aria-describedby="cf-location-error">
+                  <span class="field__error" id="cf-location-error" hidden></span>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="cf-description">Project description <span class="field__optional">(optional)</span></label>
+                  <textarea class="field__textarea" id="cf-description" name="description" rows="5" maxlength="2000" placeholder="What would you like done? Include any timing, equipment, or details that would help." aria-describedby="cf-description-hint cf-description-error"></textarea>
+                  <span class="field__hint" id="cf-description-hint"><span>Please don&rsquo;t include payment or other sensitive information.</span><span class="field__count" data-char-count aria-hidden="true">0 / 2000</span></span>
+                  <span class="field__error" id="cf-description-error" hidden></span>
+                </div>
+              </fieldset>
+
+              <fieldset class="form__group">
+                <legend class="form__legend">Preferred contact method <span class="field__optional">(optional)</span></legend>
+                <div class="choice-row">
+                  <label class="choice"><input type="radio" name="contact_method" value="phone"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg> Phone call</span></label>
+                  <label class="choice"><input type="radio" name="contact_method" value="email"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg> Email</span></label>
+                  <label class="choice"><input type="radio" name="contact_method" value="either"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg> Either</span></label>
+                </div>
+              </fieldset>
+
+              <!-- Honeypot: hidden from people, often filled in by spam bots. -->
+              <div class="hp-field" aria-hidden="true">
+                <label for="cf-website">Leave this field empty</label>
+                <input id="cf-website" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+              </div>
+
+              <div class="form-state form-state--info" data-form-state="unconfigured" role="status" tabindex="-1" hidden>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg>
+                <div>
+                  <p><strong>Online requests aren&rsquo;t connected yet.</strong> Your details have not been sent, and your entries are still here. Please reach out using the contact details on this page, or try again later.</p>
+                  <p class="form-state__alt"><a href="tel:+13214429943" data-phone>Call <span data-phone-number>(321) 442-9943</span></a> <a href="mailto:Brightflow91@gmail.com" data-email>Email <span data-email-address>Brightflow91@gmail.com</span></a></p>
+                </div>
+              </div>
+
+              <div class="form-state form-state--error" data-form-state="error" role="alert" tabindex="-1" hidden>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg>
+                <div>
+                  <p><strong>Your request wasn&rsquo;t sent.</strong> <span data-error-message>Something went wrong on our end. Please try again in a moment.</span></p>
+                  <p class="form-state__alt"><a href="tel:+13214429943" data-phone>Call <span data-phone-number>(321) 442-9943</span></a> <a href="mailto:Brightflow91@gmail.com" data-email>Email <span data-email-address>Brightflow91@gmail.com</span></a></p>
+                </div>
+              </div>
+
+              <noscript><p class="form-state form-state--info">Please enable JavaScript to submit this form, or contact us directly.</p></noscript>
+
+              <div class="form__footer">
+                <p class="form__privacy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> <span>Your details are used to respond to your request. Read our <a href="privacy.html">Privacy Policy</a>.</span></p>
+                <button class="btn btn--primary btn--lg form__submit" type="submit">
+                  <span class="btn__label">Send My Request</span>
+                  <span class="btn__spinner" aria-hidden="true"></span>
+                  <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                </button>
+              </div>
+            </form>
+
+            <div class="form-success" data-form-state="success" role="status" tabindex="-1" hidden>
+              <span class="form-success__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg></span>
+              <h3>Thank you. Your request has been sent.</h3>
+              <p>We&rsquo;ll review your project details and follow up using your preferred contact method.</p>
+              <div class="btn-row">
+                <a class="btn btn--primary" href="services.html">Explore Our Services</a>
+                <button class="btn btn--ghost" type="button" data-form-reset>Send another request</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -734,10 +921,13 @@
           <span class="brand__text"><span class="brand__name">Bright Flow</span><span class="brand__tag">Services</span></span>
         </a>
           <p>Residential and commercial electrical services across Florida, delivered with careful workmanship, clear communication, and a commitment to safety.</p>
-          <ul class="footer-badges" role="list">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg> Safety first</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> Detail-driven</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg> Clear communication</li>
+          <ul class="footer-badges" role="list" aria-label="Credentials">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg> OSHA 10 &amp; OSHA 30</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg> CPR certified</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12L13 2Z"/></svg> Journeyman-qualified electrician</li>
+          </ul>
+          <ul class="footer-social" role="list">
+            <li><a href="https://www.instagram.com/bright_flow_services/" rel="noopener" target="_blank" aria-label="Bright Flow Services on Instagram (opens in a new tab)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a></li>
           </ul>
         </div>
 
@@ -778,8 +968,9 @@
           <h2>Get in touch</h2>
           <!-- Phone and email appear automatically once set in assets/js/main.js (BRIGHT_FLOW_CONTACT). -->
           <ul class="footer-contact" role="list">
-            <li data-phone hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg><span><strong><a href="#" data-phone><span data-phone-number></span></a></strong>Call to discuss your project</span></li>
-            <li data-email hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><span><strong><a href="#" data-email><span data-email-address></span></a></strong>Send us the details</span></li>
+            <li data-phone><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg><span><strong><a href="tel:+13214429943" data-phone><span data-phone-number>(321) 442-9943</span></a></strong>Call to discuss your project</span></li>
+            <li data-email><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><span><strong><a href="mailto:Brightflow91@gmail.com" data-email><span data-email-address>Brightflow91@gmail.com</span></a></strong>Send us the details</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg><span><strong><a href="https://www.instagram.com/bright_flow_services/" rel="noopener" target="_blank">@bright_flow_services</a></strong>Follow our work on Instagram</span></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span><strong>Serving Florida</strong>Residential &amp; commercial</span></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg><span><strong><a href="contact.html#booking">Request an Estimate</a></strong>Tell us about your project</span></li>
           </ul>
@@ -798,8 +989,8 @@
   </footer>
 
   <nav class="mobile-callbar" data-callbar aria-label="Quick contact">
-    <a class="btn btn--ghost" href="#" data-phone hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg> Call</a>
-    <a class="btn btn--primary" href="contact.html#booking">Request an Estimate</a>
+    <a class="btn btn--ghost" href="tel:+13214429943" data-phone><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg> Call</a>
+    <a class="btn btn--primary" href="contact.html#booking">Get an Estimate</a>
   </nav>
 </body>
 </html>

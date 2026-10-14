@@ -2458,3 +2458,18 @@ p { text-wrap: pretty; }
 }
 .review-flag::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #E0A100; }
 .legal__placeholder { padding: 0.05rem 0.3rem; font-style: italic; color: #8A5A00; background: #FFF8E8; border-radius: 4px; }
+
+/* Contextual links inside body copy */
+.prose a, .section-head p a, .faq__answer a, .service-card p a {
+  color: var(--blue-600);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(20, 121, 246, 0.35);
+  text-underline-offset: 3px;
+  transition: text-decoration-color var(--dur-fast) var(--ease);
+}
+.prose a:hover, .section-head p a:hover, .faq__answer a:hover { text-decoration-color: currentColor; }
+.section--dark .section-head p a { color: var(--blue-400); }
+.prose a.link-arrow { text-decoration: none; }
+.footer-links--dark a { color: var(--navy-900); font-weight: 500; }
+.footer-links--dark a:hover { color: var(--blue-600); }

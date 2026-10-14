@@ -1,4 +1,7 @@
+# Bright Flow Services
 User-agent: *
 Allow: /
+Disallow: /tools/
+Disallow: /docs/
 
-Sitemap: https://www.brightflowservices.com/sitemap.xml
+Sitemap: https://www.example.com/sitemap.xml

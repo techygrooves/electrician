@@ -12,10 +12,24 @@ DirectoryIndex index.html
   Redirect 301 /services/electrical-troubleshooting.html /services/commercial-troubleshooting-repairs.html
 </IfModule>
 
-# Force HTTPS (uncomment once SSL is active on the domain)
-# RewriteEngine On
-# RewriteCond %{HTTPS} off
-# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # One canonical homepage URL: /index.html -> /  (canonical tags already point to /)
+  RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+  RewriteRule ^index\.html$ / [R=301,L]
+
+  # Once the domain and SSL are live, uncomment ONE host rule so every page has a
+  # single URL (https + www, matching the canonical tags). Replace example.com.
+  # RewriteCond %{HTTPS} off [OR]
+  # RewriteCond %{HTTP_HOST} !^www\.example\.com$ [NC]
+  # RewriteRule ^ https://www.example.com%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Development files are not part of the public site
+<IfModule mod_alias.c>
+  RedirectMatch 404 ^/(tools/|docs/|README\.md)
+</IfModule>
 
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml application/xml text/plain

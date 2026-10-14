@@ -24,9 +24,11 @@ privacy.html, terms.html   Legal pages (content to be supplied)
 404.html                   Not-found page (root-absolute paths, used by .htaccess)
 assets/css/main.css        Global design system and shared components
 assets/js/main.js          Header, dropdown, mobile menu, reveal animations
-assets/images/             Logo and favicon (SVG)
+assets/images/             Logo, favicons, and social preview images (social/)
 assets/images/photos/      Site photography (add your own, see below)
-sitemap.xml, robots.txt    SEO
+sitemap.xml, robots.txt    SEO (indexable pages only)
+docs/SEO.md                SEO notes: keyword map, audit results, local SEO and launch checklist
+tools/                     Development helpers (not needed by the live site): seo_audit.py, set_domain.py
 .htaccess                  Apache/LiteSpeed config: 404, compression, caching, security headers
 ```
 
@@ -103,7 +105,17 @@ Nothing below is published until it is confirmed:
 
 Earlier service URLs were renamed; `.htaccess` 301-redirects `panel-upgrades`, `generator-installation`, `lighting-fan-installation`, `commercial-wiring` and `electrical-troubleshooting` to their new pages.
 
+## Domain and SEO
+
+The site uses the placeholder domain `https://www.example.com` in canonical URLs, social tags, JSON-LD, `sitemap.xml` and `robots.txt`. When the real domain is confirmed:
+
+```bash
+python3 tools/set_domain.py https://www.yourdomain.com
+python3 tools/seo_audit.py     # should report 0 errors
+```
+
+See `docs/SEO.md` for everything else (keyword map, structured data, local SEO and Google Business Profile, content ideas, launch checklist). When uploading to the host, `tools/` and `docs/` don't need to be uploaded; `.htaccess` blocks them if they are.
+
 ## Other placeholders
 
-- Domain `https://www.brightflowservices.com` (canonical URLs, JSON-LD, sitemap, robots.txt)
 - Privacy Policy and Terms of Use text

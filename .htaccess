@@ -44,6 +44,14 @@ DirectoryIndex index.html
   ExpiresByType image/webp "access plus 6 months"
   ExpiresByType image/jpeg "access plus 6 months"
   ExpiresByType image/png "access plus 6 months"
+  ExpiresByType image/avif "access plus 6 months"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+<IfModule mod_mime.c>
+  AddType image/avif .avif
+  AddType image/webp .webp
+  AddType font/woff2 .woff2
 </IfModule>
 
 <IfModule mod_headers.c>

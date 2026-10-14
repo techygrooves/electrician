@@ -51,7 +51,7 @@ var BRIGHT_FLOW_CONTACT = {
   if (callbar && callbarHide && "IntersectionObserver" in window) {
     new IntersectionObserver(function (entries) {
       callbarBlocked = entries[0].isIntersecting;
-      onScroll();
+      queueScroll();
     }, { rootMargin: "0px 0px -15% 0px" }).observe(callbarHide);
   }
 
@@ -60,8 +60,15 @@ var BRIGHT_FLOW_CONTACT = {
     if (header) header.classList.toggle("is-scrolled", y > 24);
     if (callbar) callbar.classList.toggle("is-visible", y > 480 && !callbarBlocked);
   }
-  onScroll();
-  window.addEventListener("scroll", onScroll, { passive: true });
+  // Read and write scroll state once per frame (no layout thrashing on load or scroll).
+  var scrollQueued = false;
+  function queueScroll() {
+    if (scrollQueued) return;
+    scrollQueued = true;
+    requestAnimationFrame(function () { scrollQueued = false; onScroll(); });
+  }
+  queueScroll();
+  window.addEventListener("scroll", queueScroll, { passive: true });
 
   /* ------------------------------------------------------------------------
      Desktop dropdown (Services)

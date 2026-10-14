@@ -28,7 +28,8 @@ assets/images/             Logo, favicons, and social preview images (social/)
 assets/images/photos/      Site photography (add your own, see below)
 sitemap.xml, robots.txt    SEO (indexable pages only)
 docs/SEO.md                SEO notes: keyword map, audit results, local SEO and launch checklist
-tools/                     Development helpers (not needed by the live site): seo_audit.py, set_domain.py
+tools/                     Development helpers (not needed by the live site): seo_audit.py, set_domain.py, optimize_images.py
+assets/fonts/              Self-hosted Inter and Manrope variable fonts
 .htaccess                  Apache/LiteSpeed config: 404, compression, caching, security headers
 ```
 
@@ -41,6 +42,10 @@ Commercial patterns: `.bento` / `.svc-tile` (`--dark`, `--blue`, `--tint`), `.in
 Detail-page patterns: `.page-hero--media` (photo hero with an "at a glance" `.hero-panel`), `.split` / `.prose` / `.panel-card`, `.signs`, `.callout` (safety note), `.process--custom` (set `--steps`), `.faq` (native `<details>` accordion).
 
 Main CSS patterns: `.btn` (`--primary`, `--ghost`, `--light`, `--white`), `.section`, `.section-head`, `.grid--2/3/4`, `.card` / `.service-card`, `.cta-band`, `.page-hero`, `.form` / `.field`, `.reveal` (scroll animation).
+
+Fonts (Inter and Manrope, SIL Open Font License) are self-hosted in `assets/fonts/`; the site loads no third-party resources.
+
+Accessible color tokens: use `--blue-ink` for blue text on light backgrounds and `--blue-btn` for blue fills behind white text (both meet WCAG AA). The brighter `--blue-500` is for icons, borders and large accents.
 
 When CSS or JS changes, bump the `?v=` query string on the `main.css` / `main.js` links so browsers pick up the new file (they are cached for a month).
 
@@ -78,18 +83,24 @@ Once the phone and email are confirmed, also add `"telephone"` and `"email"` to 
 
 ## Photography
 
-The homepage, residential and commercial pages, and every service page have photo slots. Each shows a designed fallback until the image file exists, then fades the photo in automatically (with a dark overlay on the hero). Use your own job photos or properly licensed images:
+Photo slots are already in the HTML as commented-out `<picture>` elements, so the live site never requests a missing image. Each slot shows a designed fallback until you enable it:
 
-| File | Used for | Suggested size |
+1. Create the optimized files (AVIF, WebP and JPEG at several widths) from one high-resolution photo:
+   ```bash
+   python3 tools/optimize_images.py my-photo.jpg hero --preset wide
+   python3 tools/optimize_images.py kitchen.jpg residential --preset portrait
+   python3 tools/optimize_images.py panel.jpg services/electrical-panel-upgrades --preset wide
+   ```
+2. In the page's HTML, find the `<!-- PHOTO SLOT "…"` comment for that slot and delete the opening `<!-- PHOTO SLOT … -->` line and the closing `-->` around its `<picture>` element.
+
+| Slot | Page | Preset |
 | --- | --- | --- |
-| `assets/images/photos/hero.jpg` | Homepage hero background | 2400 × 1600, subject on the right |
-| `assets/images/photos/residential.jpg` | Residential category card | 1200 × 1500 |
-| `assets/images/photos/commercial.jpg` | Commercial category card | 1200 × 1500 |
-| `assets/images/photos/residential-hero.jpg` | Residential page hero | 2400 × 1400 |
-| `assets/images/photos/commercial-hero.jpg` | Commercial page hero | 2400 × 1400 |
-| `assets/images/photos/services/<page-name>.jpg` | Hero of each service page (e.g. `electrical-panel-upgrades.jpg`) | 2400 × 1400 |
+| `hero` | Homepage hero (loaded with high priority) | wide (16:9) |
+| `residential`, `commercial` | Homepage and About category cards (lazy-loaded) | portrait (4:5) |
+| `residential-hero`, `commercial-hero` | Residential / Commercial page heroes | wide |
+| `services/<page-name>` | Each service page hero | wide |
 
-Compress images (around 200–400 KB each) before uploading.
+Use your own job photos or properly licensed images. Hero photos sit behind a dark overlay; keep the main subject toward the right. Photos in these slots are decorative backgrounds, so `alt=""` is correct; any photo added to body content needs a real description.
 
 ## Content waiting on verified information
 

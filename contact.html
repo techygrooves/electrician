@@ -31,9 +31,9 @@
 
   <link rel="preload" href="assets/fonts/manrope-latin-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/main.css?v=8">
-  <script src="assets/js/main.js?v=8" defer></script>
-  <script src="assets/js/estimate-form.js?v=8" defer></script>
+  <link rel="stylesheet" href="assets/css/main.css?v=9">
+  <script src="assets/js/main.js?v=9" defer></script>
+  <script src="assets/js/estimate-form.js?v=9" defer></script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -441,7 +441,7 @@
           <aside class="contact-aside" aria-label="Contact information">
             <div class="panel-card">
               <h2 class="h4">Contact information</h2>
-              <!-- Placeholders: set phone, email, address and hours in assets/js/main.js (BRIGHT_FLOW_CONTACT). -->
+              <!-- Address and hours appear automatically once set in assets/js/main.js (BRIGHT_FLOW_CONTACT). -->
               <ul class="contact-list" role="list">
               <li>
                 <span class="contact-list__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12L13 2Z"/></svg></span>
@@ -463,17 +463,17 @@
                 <span class="contact-list__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></span>
                 <div><span class="contact-list__label">Credentials</span><span class="contact-list__value">OSHA 10 &amp; OSHA 30, CPR certified<small>Journeyman-qualified electrician</small></span></div>
               </li>
-              <li>
+              <li data-contact-row="address" hidden>
                 <span class="contact-list__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
-                <div><span class="contact-list__label">Business address</span><span class="contact-list__value"><span class="is-placeholder" data-contact="address">To be confirmed</span></span></div>
+                <div><span class="contact-list__label">Business address</span><span class="contact-list__value"><span data-contact="address"></span></span></div>
               </li>
               <li>
                 <span class="contact-list__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
-                <div><span class="contact-list__label">Service area</span><span class="contact-list__value">Florida<small>Specific cities and counties to be confirmed</small></span></div>
+                <div><span class="contact-list__label">Service area</span><span class="contact-list__value">Florida<small>Send your address to confirm service at your location</small></span></div>
               </li>
-              <li>
+              <li data-contact-row="hours" hidden>
                 <span class="contact-list__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
-                <div><span class="contact-list__label">Business hours</span><span class="contact-list__value"><span class="is-placeholder" data-contact="hours">To be confirmed</span></span></div>
+                <div><span class="contact-list__label">Business hours</span><span class="contact-list__value"><span data-contact="hours"></span></span></div>
               </li>
               </ul>
             </div>

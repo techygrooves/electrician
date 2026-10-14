@@ -5,20 +5,17 @@
 /* --------------------------------------------------------------------------
    BUSINESS DETAILS & FORM ENDPOINT: edit here once they are confirmed.
 
-   phone / email   Every [data-phone] / [data-email] element across the site
-                   stays hidden until a value is set, so no placeholder number
-                   or address is ever linked.
-   address / hours Shown on the contact page in place of the "to be confirmed"
-                   placeholders.
-   formEndpoint    URL that receives the Request an Estimate form as a POST
-                   (multipart form data, Accept: application/json). Use a form
-                   service URL or your own server-side script. Never put API
-                   keys or secrets here: this file is public.
-                   While empty, the form validates input but clearly tells the
-                   visitor that online requests are not connected yet.
-
-   Example: phone: "(407) 555-0100", email: "hello@example.com",
-            formEndpoint: "https://formspree.io/f/yourFormId"
+   phone / email   Verified details. They are also written directly into the
+                   HTML of every page; if they ever change, update them here
+                   AND in the HTML (search for the old number/address).
+   address / hours The contact-page rows for these stay hidden until a value
+                   is set here.
+   formEndpoint    URL that receives the homepage consultation form and the
+                   contact-page Request an Estimate form as a POST (multipart
+                   form data, Accept: application/json). Currently Formspree.
+                   Never put API keys or secrets here: this file is public.
+                   If emptied, the forms still validate but tell the visitor
+                   that online requests are not connected.
    -------------------------------------------------------------------------- */
 var BRIGHT_FLOW_CONTACT = {
   phone: "(321) 442-9943",
@@ -275,6 +272,7 @@ var BRIGHT_FLOW_CONTACT = {
       el.textContent = value;
       el.classList.remove("is-placeholder");
     });
+    document.querySelectorAll('[data-contact-row="' + key + '"]').forEach(function (row) { row.hidden = false; });
   });
   // Placeholders shown only while a phone number / email is missing.
   document.querySelectorAll("[data-when-missing]").forEach(function (el) {

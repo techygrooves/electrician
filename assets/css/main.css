@@ -2751,3 +2751,15 @@ p { text-wrap: pretty; }
 .consult-section .form-panel :focus-visible { outline-color: var(--blue-500); }
 @media (prefers-reduced-motion: reduce) { .contact-methods a:hover { transform: none; } }
 .mobile-callbar .btn { white-space: nowrap; }
+
+/* Commercial grids sized to their current item counts (3 services, 4 industries) */
+@media (min-width: 1100px) {
+  .bento > :nth-child(3):last-child { grid-column: 1 / -1; min-height: 280px; }
+  .bento > :nth-child(3):last-child p { max-width: 70ch; }
+}
+@media (min-width: 1024px) {
+  .industry-grid:has(> :nth-child(4):last-child) { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1200px) {
+  .industry-grid:has(> :nth-child(4):last-child) { grid-template-columns: repeat(4, 1fr); }
+}

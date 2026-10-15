@@ -3,13 +3,16 @@
 ErrorDocument 404 /404.html
 DirectoryIndex index.html
 
-# Renamed service pages (keep old links working)
+# Renamed or retired service pages (keep old links working)
 <IfModule mod_alias.c>
   Redirect 301 /services/panel-upgrades.html /services/electrical-panel-upgrades.html
-  Redirect 301 /services/generator-installation.html /services/backup-generator-installation.html
   Redirect 301 /services/lighting-fan-installation.html /services/lighting-and-fan-upgrades.html
-  Redirect 301 /services/commercial-wiring.html /services/new-construction-wiring.html
   Redirect 301 /services/electrical-troubleshooting.html /services/commercial-troubleshooting-repairs.html
+  Redirect 301 /services/generator-installation.html /residential.html
+  Redirect 301 /services/backup-generator-installation.html /residential.html
+  Redirect 301 /services/commercial-wiring.html /commercial.html
+  Redirect 301 /services/new-construction-wiring.html /commercial.html
+  Redirect 301 /services/commercial-service-upgrades.html /commercial.html
 </IfModule>
 
 <IfModule mod_rewrite.c>

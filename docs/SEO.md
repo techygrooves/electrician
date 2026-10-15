@@ -40,14 +40,12 @@ One primary theme per page avoids pages competing with each other. City names ar
 | `/services.html` | Electrical services Florida | residential and commercial service overview |
 | `/services/electrical-panel-upgrades.html` | Electrical panel upgrade, 200 amp panel upgrade | breaker box replacement, 100 to 200 amp service |
 | `/services/ev-charger-installation.html` | EV charger installation | Level 2 home charging, 240-volt circuit |
-| `/services/backup-generator-installation.html` | Home generator installation | standby generator, transfer switch, hurricane season |
 | `/services/lighting-and-fan-upgrades.html` | LED lighting installation | recessed lighting, dimmers, ceiling fans, exhaust fans |
+| `/services/residential-electrical-service.html` | Emergency electrician / residential electrical repair | electrical troubleshooting, tripping breaker, outlet repair |
 | `/services/dedicated-electrical-circuits.html` | Dedicated circuit installation | hot tub, sauna, appliance, workshop circuits |
 | `/services/smart-home-integration.html` | Smart home electrical installation | smart thermostat, smart switches, video doorbell |
-| `/services/new-construction-wiring.html` | Commercial electrical wiring | new construction, tenant build-out, data infrastructure |
 | `/services/commercial-lighting-retrofits.html` | Commercial lighting retrofit | fluorescent to LED, occupancy sensors |
 | `/services/specialized-equipment-hookups.html` | Commercial equipment hookups | commercial kitchen, HVAC, three-phase |
-| `/services/commercial-service-upgrades.html` | Commercial electrical service upgrade | load assessment, capacity expansion |
 | `/services/commercial-troubleshooting-repairs.html` | Electrical troubleshooting (commercial) | tripping breakers, flickering lights, power loss |
 | `/about.html` | Brand / Florida electrical contractor | approach, values |
 | `/contact.html` | Request an electrical estimate | contact, consultation |
@@ -67,7 +65,7 @@ One primary theme per page avoids pages competing with each other. City names ar
 - Absolute canonical URL on every indexable page. The homepage canonical is `/` and `.htaccess` 301-redirects `/index.html` to `/` to prevent duplicate homepage URLs.
 - A commented `.htaccess` rule forces one host (https + www) once the domain and SSL are live.
 - `robots` meta: `index, follow` on all production pages. **Intentionally `noindex`:** `404.html`, `privacy.html` (draft pending business review) and `terms.html` (placeholder). Once the legal pages are final, remove their `noindex`, add a canonical tag, and add them to `sitemap.xml`. The audit script will flag anything that's out of step.
-- `sitemap.xml` lists only the 17 indexable pages, with the homepage as `/`.
+- `sitemap.xml` lists only the 15 indexable pages, with the homepage as `/`.
 - `robots.txt` allows crawling, disallows `/tools/` and `/docs/`, and references the sitemap.
 - Useful `404.html` with root-relative links (works at any URL depth), configured via `ErrorDocument`.
 - 301 redirects for previously renamed service URLs.

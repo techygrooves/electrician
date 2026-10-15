@@ -11,10 +11,9 @@ index.html                 Homepage
 services.html              Services overview
 services/*.html            One detail page per service:
                            residential: electrical-panel-upgrades, ev-charger-installation,
-                           backup-generator-installation, lighting-and-fan-upgrades,
-                           dedicated-electrical-circuits, smart-home-integration
-                           commercial: new-construction-wiring, commercial-lighting-retrofits,
-                           specialized-equipment-hookups, commercial-service-upgrades,
+                           residential-electrical-service (emergency & non-emergency),
+                           lighting-and-fan-upgrades, dedicated-electrical-circuits, smart-home-integration
+                           commercial: commercial-lighting-retrofits, specialized-equipment-hookups,
                            commercial-troubleshooting-repairs
 residential.html           Residential electrical
 commercial.html            Commercial electrical
@@ -144,7 +143,7 @@ Nothing below is published until it is confirmed:
 
 ## Renamed pages
 
-Earlier service URLs were renamed; `.htaccess` 301-redirects `panel-upgrades`, `generator-installation`, `lighting-fan-installation`, `commercial-wiring` and `electrical-troubleshooting` to their new pages.
+Renamed or retired service URLs are 301-redirected in `.htaccess`: old renamed pages go to their new names, and the retired backup generator, new construction wiring and commercial service upgrade pages go to the Residential or Commercial overview.
 
 ## Domain and SEO
 
